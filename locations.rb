@@ -1,0 +1,17 @@
+require 'net/http'
+require 'uri'
+
+uri = URI.parse("https://420cannabliss.com/prod/api/packages?facilityId=925&filter=%7B%22locationId%22%3A2580%7D&range=%5B0%2C24%5D&sort=%5B%22id%22%2C%22DESC%22%5D")
+request = Net::HTTP::Get.new(uri)
+request["Authorization"] = "bearer eyJraWQiOiIwMjhmS1d0SGZ4UEYzSUlmSE5mNnZBNnRpWFZmcHY0cGRkTzBvaU9lTDBJPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJiN2Y0Yzc0NC1kNjQ0LTQ4MGEtOTIyNi02MjMzYTViNGI5ODAiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiY3VzdG9tOmZhY2lsaXRpZXMiOiI5MjUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtd2VzdC0yLmFtYXpvbmF3cy5jb21cL3VzLXdlc3QtMl9Bc0ZMV2VMdmYiLCJjdXN0b206aWQiOiIzNjI4OTkiLCJjb2duaXRvOnVzZXJuYW1lIjoiaHN1NGRlcmVrW2F0XWdtYWlsLmNvbSIsImN1c3RvbTpjb21wYW55IjoiOTI1IiwiYXVkIjoiN3J0MGZybHBlN2RhY25zcDYwaTh2NWgwY28iLCJldmVudF9pZCI6Ijc0MDhhZTBlLTgyMzktNDE5Yi1iZjBmLTExNmYxYjdjMzA1NCIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjQxODY3MjM0LCJleHAiOjE2NDMxMDA4MTQsImN1c3RvbTpyb2xlIjoiNCIsImlhdCI6MTY0MzA5NzIxNCwiZW1haWwiOiJoc3U0ZGVyZWtAZ21haWwuY29tIn0.JArm2WGtdKyXEbQxiQo68NFQ1ES3ljyFW7kyTfIRHVKQWGYQdw0lgm8HH9wktUdZG871fNXXlRYzJauGP11L0y_5R5JdQWhEA-xXTA6uSS7ReJIsUlxxiATWN92sIU75Od6jE4CMmwXbeyVw1Wy30a4ahutDYJpgtlbL6gZ_v6KbMY6pUeLofJVkrMOb2C3JvsOSFspYvaTWlvB6OX_WP5UfinqtJez_sTvIVvrjYnPTRU2PWq4LfNFELTqyioD-q9McUh96Rq4sVcwq5e6JUG_Kj3l_KA2wdjX5WYy9IBCX7_gctXEYhFyR5UT-ZmOAFSBS5OfU2sUxFvN_XodPHw"
+
+req_options = {
+  use_ssl: uri.scheme == "https",
+}
+
+response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+  http.request(request)
+end
+
+puts response.code
+puts response.body.to_s

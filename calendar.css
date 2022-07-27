@@ -1,0 +1,37 @@
+div {
+  text-align: center;
+}
+
+.header-bar {
+  display: flex;
+  padding-bottom: 20px;
+  justify-content: space-between;
+  width: 800px;
+  line-height: 80px;
+}
+.change-month {
+  border: 1px solid black;
+}
+
+.calendar-container {
+  display: flex;
+  width: 800px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.calendar-days {
+  width: 14%;
+  line-height: 50px;
+  cursor: pointer;
+}
+
+.calendar-day-of-week {
+  font-weight: bold;
+}
+
+.selected-day {
+  background-color: aquamarine;
+  border-radius: 70px;
+  font-weight: bold;
+}

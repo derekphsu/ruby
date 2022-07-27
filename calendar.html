@@ -1,0 +1,25 @@
+<div>
+  <div class="header-bar">
+    <h3 class="change-month" (click)="changeMonth('backwards')">
+      Previous Month
+    </h3>
+    <h1>
+      {{ months[month] }} {{ year }}
+    </h1>
+    <h3 class="change-month" (click)="changeMonth('forwards')">Next Month</h3>
+  </div>
+
+  <div class="calendar-container">
+    <div class="calendar-days calendar-day-of-week" *ngFor="let day of days">
+      {{day}}
+    </div>
+    <div
+      class="calendar-days"
+      [ngClass]="{'selected-day': selectedDate==day}"
+      *ngFor="let day of daysArr"
+      (click)="changeDate(day)"
+    >
+      {{day}}
+    </div>
+  </div>
+</div>
