@@ -7,7 +7,7 @@ def curling
 	res = Net::HTTP.get_response(uri)
 	puts res.methods
 	puts res.get_response
-	puts "random"
+	puts "random2"
 	# puts res.body
 	# puts res.is_a?(Net::HTTPError)
 end
